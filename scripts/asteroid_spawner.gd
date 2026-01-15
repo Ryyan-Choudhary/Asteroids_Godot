@@ -1,9 +1,9 @@
 extends Node2D
 
-@export var asteroid_scene: PackedScene       # Assign your Asteroid.tscn here
 var spawn_rate: float = 1.0                   # Seconds between spawns
 const x_padding: float = 25
-@export var cam: Camera2D                     # Reference to your camera
+@onready var asteroid_scene: PackedScene = load("res://scenes/asteroid.tscn")
+@onready var cam: Camera2D = $"../Camera2D"
 const ZOOM: float = 4.0
 const BUFFERED_PIXELS: int = 32
 

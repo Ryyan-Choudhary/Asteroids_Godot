@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://7n8j6g8eabkt"]
+
+[node name="end" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -694.0
+offset_top = -429.0
+offset_right = 792.0
+offset_bottom = 398.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -468.0
+offset_top = -110.0
+offset_right = 808.0
+offset_bottom = 163.0
+theme_override_colors/font_color = Color(1, 0.4627451, 1, 1)
+theme_override_font_sizes/font_size = 150
+text = "U died man :("

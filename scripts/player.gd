@@ -9,8 +9,8 @@ const Z_INDEX:int=2
 const SHOT_COOLDOWN:float=0.25
 var shot_timer:float=0.0
 
-@export var bullet_scene: PackedScene
-@export var cam:Camera2D
+@onready var bullet_scene: PackedScene = load("res://scenes/bullet.tscn")
+@onready var cam: Camera2D = $"../Camera2D"
 
 func _ready() -> void:
 	z_index=Z_INDEX
@@ -40,6 +40,7 @@ func _physics_process(delta: float) -> void:
 	# Move the spaceship
 	velocity = movement
 	move_and_slide()
+	check_collisions()
 	limit_movement()
 	# Shoot bullet when space is pressed
 	if shot_timer > 0:
@@ -74,3 +75,24 @@ func shoot():
 		var bullet = bullet_scene.instantiate()  # create a new bullet
 		bullet.position = position  # spawn at player position
 		get_parent().add_child(bullet)  # add to the scene
+
+func check_collisions():
+	for i in range(get_slide_collision_count()):
+		var collision := get_slide_collision(i)
+		var other := collision.get_collider()
+
+		if other.is_in_group("asteroids"):
+			other.queue_free()   # delete asteroid
+
+			# Get parent node (e.g., gameplay node)
+			var parent_node = get_parent()
+			parent_node.queue_free()  # delete the parent safely
+
+			# Load end scene
+			var end_scene: PackedScene = load("res://scenes/end.tscn")
+			var end_instance = end_scene.instantiate()
+
+			# Add to root of scene tree
+			get_tree().root.add_child(end_instance)
+
+			return

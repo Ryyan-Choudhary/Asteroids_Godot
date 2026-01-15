@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://docx35x2ypkf0"]
+
+[ext_resource type="Script" uid="uid://0i7r10lviakw" path="res://scripts/asteroid_spawner.gd" id="1_yafkd"]
+[ext_resource type="PackedScene" uid="uid://dp4c8n6105a2s" path="res://scenes/asteroid.tscn" id="2_ju0s6"]
+
+[node name="AsteroidSpawner" type="Node2D" node_paths=PackedStringArray("cam")]
+script = ExtResource("1_yafkd")
+asteroid_scene = ExtResource("2_ju0s6")
+cam = NodePath("")

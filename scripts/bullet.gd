@@ -12,7 +12,7 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	# Move the bullet upward using physics
-	var collision = move_and_collide(Vector2(0, -SPEED * delta))
+	var _collision = move_and_collide(Vector2(0, -SPEED * delta))
 	
 	# Optional: handle collision
 

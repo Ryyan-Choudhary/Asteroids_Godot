@@ -12,11 +12,19 @@ const FRAMEWISE:bool=true
 const frame_interval:int=5
 var frame_timer:int=0
 
-@export var cam: Camera2D
-@export var tilemap:TileMapLayer
+@onready var cam: Camera2D = $"../Camera2D"
+@onready var tilemap: TileMapLayer = $TileMapLayer
+
 
 func _ready():
 	randomize()
+	var ret:Dictionary=get_limits()
+	var top_left:Vector2i = tilemap.local_to_map(ret["top_left"])
+	var bottom_right:Vector2i = tilemap.local_to_map(ret["bottom_right"])
+	
+	for i in 11:
+		spawn_row(top_left.y-TILE_COUNT,top_left.x-TILE_COUNT,bottom_right.x+TILE_COUNT)
+		move_rows_down()
 
 func _process(delta):
 	var ret:Dictionary=get_limits()

@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://wjbxk348ktwi"]
+[gd_scene load_steps=5 format=3 uid="uid://wjbxk348ktwi"]
 
 [ext_resource type="PackedScene" uid="uid://7tnm1iaa5nfo" path="res://scenes/player.tscn" id="1_40w10"]
 [ext_resource type="PackedScene" uid="uid://73fjmva1gt6n" path="res://scenes/tile_map_scroller.tscn" id="2_t45w4"]
 [ext_resource type="PackedScene" uid="uid://docx35x2ypkf0" path="res://scenes/asteroid_spawner.tscn" id="3_h5ip5"]
 [ext_resource type="Script" uid="uid://bl8wrepqn4k72" path="res://scripts/label.gd" id="4_h5ip5"]
-[ext_resource type="Script" uid="uid://cxm4qos6ej5ba" path="res://scripts/game_manager.gd" id="5_40w10"]
 
 [node name="Base" type="Node2D"]
 
@@ -18,14 +17,11 @@ zoom = Vector2(4, 4)
 [node name="AsteroidSpawner" parent="." instance=ExtResource("3_h5ip5")]
 
 [node name="Label" type="Label" parent="."]
-offset_left = -127.0
-offset_top = -77.0
-offset_right = -42.0
-offset_bottom = 102.0
-theme_override_font_sizes/font_size = 64
+offset_left = -84.0
+offset_top = -57.0
+offset_right = 1.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 32
 text = "0
 "
 script = ExtResource("4_h5ip5")
-
-[node name="GameManager" type="Node2D" parent="."]
-script = ExtResource("5_40w10")

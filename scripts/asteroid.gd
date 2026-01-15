@@ -25,4 +25,7 @@ func _process(_delta):
 func _on_body_entered(body):
 	if body.is_in_group("bullets"):
 		body.queue_free()      # Destroy the bullet
+	# Add score
+		var game_manager = get_parent().get_parent().get_node("GameManager")
+		game_manager.add_score(10)  # Add 10 points per asteroid
 		queue_free()           # Destroy this asteroid
